@@ -5,6 +5,12 @@ use plonk::cs::constraint_system::Variable;
 #[derive(Clone, Copy, Eq, PartialEq, Hash)]
 pub struct BoolVar(pub(crate) Variable);
 
+impl From<Variable> for BoolVar {
+    fn from(v: Variable) -> BoolVar {
+        BoolVar(v)
+    }
+}
+
 impl Into<Variable> for BoolVar {
     fn into(self) -> Variable {
         self.0
